@@ -68,8 +68,9 @@ const handler = async (event) => {
     }
 
     const { authorization, referer } = event.headers;
-
-    if (referer !== 'https://weather-power-up.netlify.app/') {
+    //https://weather-power-up.netlify.app/
+    //https://test-app-powerup-trello.netlify.app/
+    if (referer !== 'https://test-app-powerup-trello.netlify.app/') {
       console.log('Rejected request from referer', referer);
       return { statusCode: 403, body: 'Forbidden' };
     }
