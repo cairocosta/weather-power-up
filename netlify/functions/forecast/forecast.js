@@ -75,17 +75,17 @@ const handler = async (event) => {
       return { statusCode: 403, body: 'Forbidden' };
     }
 
-    let context;
-    try {
-      context = await decodeAndValidate(authorization);
-    } catch (err) {
-      console.log('Rejected request with invalid JWT', authorization);
-      console.log(JSON.stringify(err));
-      return { statusCode: 401, body: 'Unauthorized' };
-    }
+    // let context;
+    // try {
+    //   context = await decodeAndValidate(authorization);
+    // } catch (err) {
+    //   console.log('Rejected request with invalid JWT', authorization);
+    //   console.log(JSON.stringify(err));
+    //   return { statusCode: 401, body: 'Unauthorized' };
+    // }
 
     const forecast = await fetchWeatherForecast(units, lang, latitude, longitude);
-    console.log('Fetched forecast for member', context.idMember);
+    // console.log('Fetched forecast for member', context.idMember);
     return {
       statusCode: 200,
       body: JSON.stringify(forecast),
